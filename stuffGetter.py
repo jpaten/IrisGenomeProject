@@ -30,9 +30,7 @@ dictOfSames = makeMatrix(speciesList)
 for i in AlignIO.parse("PAX6Alignments", "maf"):
         #Loops through each block in the alignment.i is an Object that can be turned into a list or string and has several deprecated functions (which I use).
         columnDict = {}
-        for j in xrange(i.get_alignment_length()):
-                #creates columnDict, a dictionary that contains a apecies name and a letter
-                global columnDict
+        for j in xrange(i.get_alignment_length())
                 column = i.get_column(j)
                 if '-' or "n" not in column:
                         y = 0
