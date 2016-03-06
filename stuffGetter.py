@@ -6,8 +6,8 @@ import cPickle as pickle
 #speciesList is a list of all the species that are revelant to this project.
 speciesList = []
 a = 0
-workAlignment = raw_input("What file is your alignment in?")
-geneName = raw_input("What gene are you interested in")
+workAlignment = raw_input("What file is your alignment in? ")
+geneName = raw_input("What gene are you interested in? ")
 def rmDot(string):
         #Removes dots
         return re.findall("(.*)[.]",string)[0]
@@ -36,7 +36,7 @@ for i in AlignIO.parse(workAlignment, "maf"):
                 #creates columnDict, a dictionary that contains a apecies name and a letter
                 global columnDict
                 column = i.get_column(j)
-                if '-' or "n" not in column:
+                if '-' or "n" or "N" not in column:
                         y = 0
                         for k in column:
                                 columnDict[rmDot(list(i)[y].id)] = k
