@@ -6,7 +6,8 @@ import cPickle as pickle
 #speciesList is a list of all the species that are revelant to this project.
 speciesList = []
 a = 0
-workAlignment = "PAX6Alignments"
+workAlignment = raw_input("What file is your alignment in?")
+geneName = raw_input("What gene are you interested in")
 def rmDot(string):
         #Removes dots
         return re.findall("(.*)[.]",string)[0]
@@ -51,7 +52,9 @@ for i in AlignIO.parse(workAlignment, "maf"):
 
 #print dictOfSames
 #print dictOfCounts
+
+
 def fileWriter(path, data):
         pickle.dump(data, open(path, "wb"))
-fileWriter("data/pax6Diffs", dictOfCounts)
-fileWriter("data/pax6Sames", dictOfSames)
+fileWriter("data/" + geneName + "diffs", dictOfCounts)
+fileWriter("data/" + geneName + "sames", dictOfSames)
