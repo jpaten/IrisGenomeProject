@@ -1,3 +1,3 @@
 # IrisGenomeProject
-A science project for an Iris Science Academy class
+A science project for an Iris Science Academy class.\n
 It involves counting differences between genes and requires the biopython maf reader.
