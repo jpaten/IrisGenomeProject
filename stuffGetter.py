@@ -49,8 +49,8 @@ def getStuff(workAlignment, geneName):
                                                 dictOfSames[g][h] = dictOfSames[g][h] + 1
         def fileWriter(path, data):
                 pickle.dump(data, open(path, "wb"))
-        fileWriter("data/" + geneName + "diffs", dictOfCounts)
-        fileWriter("data/" + geneName + "sames", dictOfSames)
+        fileWriter("data/" + geneName + "Diffs", dictOfCounts)
+        fileWriter("data/" + geneName + "Sames", dictOfSames)
         fileWriter("data/emptyMatrix", makeMatrix(speciesList))
 geneDict = {"PAX6Alignments":"PAX6", "OTX1Alignments.maf":"OTX1", "CRYGBAlignments":"CRYGB", "SIX6Alignments.maf.txt":"SIX6", "PDE6BAlignments":"PDE6B", "TULP1Alignments.maf.txt":"TULP1", "VSX2Alignments.maf":"VSX2"}
 alignment = raw_input("What file is your alignment in? ")
