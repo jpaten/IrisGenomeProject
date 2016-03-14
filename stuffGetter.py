@@ -1,6 +1,4 @@
 #This program counts differences. This bit just imports things though.
-import re
-import sys
 from Bio import AlignIO
 import cPickle as pickle
 a = 0

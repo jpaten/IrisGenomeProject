@@ -6,7 +6,7 @@ def stuffGetter(path):
 def limit(gene, listOfSpecies):
     #Creates a small matrix called outputDict, whch is ratioDict, except limited to only a few species
     outputDict = {}
-    ratioDict = stuffGetter("finalData/"+gene.lower().capitalize())
+    ratioDict = stuffGetter("finalData/"+gene.upper())
     for g in ratioDict:
         if g in listOfSpecies:
             outputDict[g] = {}
@@ -15,15 +15,40 @@ def limit(gene, listOfSpecies):
                     outputDict[g][j] = ratioDict[g][j]
     return outputDict
 
-#Coming soon!
-#def average(gene):
-#    ratioDict = stuffGetter("finalData/"+gene.lower().capitalize())
-#    addedNums = [float(0) , 0]
-#    for i in ratioDict:
-#        for g in ratioDict[i]:
-#            print ratioDict[i][g]
-#            addedNums[0] = addedNums[0] + ratioDict[i][g]
-#            addedNums = addedNums[0] + 1
-#    return addedNums
-#print limit("SIX6", ["rheMac3", "otoGar3", "chlSab2"])
-print average("pax6")
+def numberFilter(gene, listOfSpecies=[]):
+    pass
+def average(gene):
+    ratioDict = stuffGetter("finalData/"+gene.upper())
+    addedNum = 0.0
+    timesAdded = 0
+    for i in ratioDict:
+        for g in ratioDict[i]:
+            addedNum = addedNum + ratioDict[i][g]
+            timesAdded = timesAdded + 1
+    return addedNum/timesAdded
+
+def makeTable(matrix, file):
+    f = open(file, "w")
+    f.write("")
+    top = ""
+    keys = list(matrix.keys())
+    keys.sort()
+    f.write(",".join([ "Species" ] + keys) + "\n")
+    for key in keys:
+         f.write(",".join([ key ] + [ str(matrix[key][key2]) for key2 in keys ]) + "\n")
+    f.close()
+
+def autorun(listOfLists, geneList=["CRYGB", "OTX1", "PAX6", "PDE6B", "SIX6", "TULP1", "VSX2"]):
+    for i in listOfLists:
+        for g in geneList:
+            print g
+            print limit(g,i)
+
+
+#print limit("six6", ["rheMac3", "falChe1", "petMar2"])
+#print average("six6")
+treeDict = {"Blue":["rheMac3", "chlSab2", "otoGar3"], "Red":["speTri2", "jacJac1", "mesAur1"], "Brown":["hetGla2", "chiLan1", "ochPri3"],"Green":["felCat8", "canFam3", "eptFus1"], "Orange":["eleEdw1", "chrAsi1", "echTel2"], "Pink":["rheMac3", "falChe1", "anaPla1"]}
+for i in treeDict:
+    makeTable(limit("vsx2", treeDict[i]), "tables/vsx2/"+i+".csv")
+makeTable(stuffGetter(open("finalData/Pax6")), "pax6General.csv")
+#print limit("CRYGB", ["rheMac3", "jacJac1", "felCat8"])

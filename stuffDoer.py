@@ -12,7 +12,7 @@ def stuffDoer(diffs,sames, gene):
                 ratios[i][g] = float(0)
     def fileWriter(path, data):
         cPickle.dump(data, open(path, "wb"))
-    fileWriter("finalData/" + gene.capitalize(), ratios)
+    fileWriter("finalData/" + gene.upper(), ratios)
     return ratios
 gene = raw_input("What is your gene")
 geneList = ["CRYGB", "OTX1", "PAX6", "PDE6B", "SIX6", "TULP1", "VSX2"]
