@@ -47,8 +47,11 @@ def autorun(listOfLists, geneList=["CRYGB", "OTX1", "PAX6", "PDE6B", "SIX6", "TU
 
 #print limit("six6", ["rheMac3", "falChe1", "petMar2"])
 #print average("six6")
+geneList = ["CRYGB", "OTX1", "PAX6", "PDE6B", "SIX6", "TULP1", "VSX2"]
 treeDict = {"Blue":["rheMac3", "chlSab2", "otoGar3"], "Red":["speTri2", "jacJac1", "mesAur1"], "Brown":["hetGla2", "chiLan1", "ochPri3"],"Green":["felCat8", "canFam3", "eptFus1"], "Orange":["eleEdw1", "chrAsi1", "echTel2"], "Pink":["rheMac3", "falChe1", "anaPla1"]}
-for i in treeDict:
-    makeTable(limit("vsx2", treeDict[i]), "tables/vsx2/"+i+".csv")
-makeTable(stuffGetter(open("finalData/Pax6")), "pax6General.csv")
+
+for o in geneList:
+    for i in treeDict:
+        makeTable(limit(o,treeDict[i]), "tables/" + o + "/"+i+".csv")
+#makeTable(stuffGetter("finalData/Pax6"), "pax6General.csv")
 #print limit("CRYGB", ["rheMac3", "jacJac1", "felCat8"])

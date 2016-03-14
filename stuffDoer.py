@@ -7,7 +7,7 @@ def stuffDoer(diffs,sames, gene):
     for i in diffs:
         for g in diffs[i]:
             try:
-                ratios[i][g] = float(diffs[i][g])/float(sames[i][g])
+                ratios[i][g] = float(diffs[i][g])/(float(sames[i][g]) + diffs[i][g])
             except:
                 ratios[i][g] = float(0)
     def fileWriter(path, data):
